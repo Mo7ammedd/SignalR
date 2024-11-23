@@ -4,9 +4,9 @@ namespace SignalR.Hubs;
 
 public class UserHub : Hub
 {
-    public static int ViewersCount { get; set; }=0;
+    private static int ViewersCount { get; set; }=0;
 
-    public static int TotalUsers { get; set; }=0;
+    private static int TotalUsers { get; set; }=0;
 
     public override Task OnConnectedAsync()
     {

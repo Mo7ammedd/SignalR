@@ -1,5 +1,6 @@
 ﻿// Create a connection to the hub
-var connectionUserCount = new signalR.HubConnectionBuilder().withUrl("/hub/userCount").build();
+var connectionUserCount = new signalR.HubConnectionBuilder()
+    .withUrl("/hub/userCount",signalR.HttpTransportType.WebSockets).build();
 
 // Connect  to method in the hub invokes aka receives the message
 
