@@ -15,6 +15,22 @@ let trigger_ravenclaw = document.getElementById("trigger_ravenclaw");
 var connectionHouse = new signalR.HubConnectionBuilder()
     //.configureLogging(signalR.LogLevel.Information)
     .withUrl("/hub/houseGroups").build();
+trigger_gryffindor.addEventListener("click", function (event) {
+    connectionHouse.send("TriggerNotification", "Gryffindor");
+    event.preventDefault();
+});
+trigger_hufflepuff.addEventListener("click", function (event) {
+    connectionHouse.send("TriggerNotification", "Hufflepuff");
+    event.preventDefault();
+});
+trigger_ravenclaw.addEventListener("click", function (event) {
+    connectionHouse.send("TriggerNotification", "Ravenclaw");
+    event.preventDefault();
+});
+trigger_slytherin.addEventListener("click", function (event) {
+    connectionHouse.send("TriggerNotification", "Slytherin");
+    event.preventDefault();
+});
 btn_gryffindor.addEventListener("click", function (event) {
     connectionHouse.send("JoinHouse", "Gryffindor");
     event.preventDefault();
@@ -47,12 +63,16 @@ btn_un_slytherin.addEventListener("click", function (event) {
     connectionHouse.send("LeaveHouse", "Slytherin");
     event.preventDefault();
 });
+connectionHouse.on("triggerHouseNotification", (houseName) => {
+    toastr.success(`A New Notification to ${houseName}`);
+});
 connectionHouse.on("newMemberAddedToHouse", (houseName) => {
     toastr.success(`Member has subscribed to ${houseName}`);
 });
 connectionHouse.on("newMemberRemovedFromHouse", (houseName) => {
     toastr.warning(`Member has unsubscribed from ${houseName}`);
 });
+
 connectionHouse.on("subscriptionStatus", (strGroupsJoined,houseName,hasSubscribed) => {
     lbl_houseJoined.innerHTML = strGroupsJoined;
     if (hasSubscribed) {

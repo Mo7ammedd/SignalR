@@ -47,5 +47,9 @@ public class HouseGroupsHub : Hub
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, houseName);
         }
     }
+    public async Task TriggerNotification(string houseName)
+    {
+        await Clients.Group(houseName).SendAsync("triggerHouseNotification", houseName);
+    }
     
 }
