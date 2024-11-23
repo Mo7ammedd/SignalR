@@ -44,6 +44,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapHub<UserHub>("/hub/userCount");
 app.MapHub<DeathlyHallowsHub>("/hub/deathlyHallows");
+app.MapHub<HouseGroupsHub>("/hub/houseGroups");
 app.MapRazorPages();
 
 app.Run();
