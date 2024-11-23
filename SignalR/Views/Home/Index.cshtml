@@ -9,17 +9,5 @@
 
 @section scripts{
     <script src="~/js/signalr.js"></script>
-    <script>
-        var connection = new signalR.HubConnectionBuilder().withUrl("/viewsHub").build();
-
-        connection.on("ReceiveMessage", function (message) {
-            document.getElementById("TotalViewsCounter").innerText = message;
-        });
-
-        connection.start().then(function () {
-            console.log("Connected to the hub");
-        }).catch(function (err) {
-            return console.error(err.toString());
-        });
-    </script>
+    <script src="js/UsersCount.js"></script>
 }
