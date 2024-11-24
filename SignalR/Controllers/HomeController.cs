@@ -1,10 +1,13 @@
 using System.Diagnostics;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using SignalR.Data;
 using SignalR.Helpers;
 using SignalR.Hubs;
 using SignalR.Models;
+using SignalR.Models.ViewModels;
 
 namespace SignalR.Controllers;
 
@@ -77,6 +80,18 @@ public class HomeController : Controller
         public IActionResult HarryPotterHouse()
         {
             return View();
+        }
+        [Authorize]
+        public IActionResult Chat()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ChatViewModel chatVm = new()
+            {
+                Rooms = _context.ChatRooms.ToList(),
+                MaxRoomAllowed = 4,
+                UserId = userId,
+            };
+            return View(chatVm); 
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

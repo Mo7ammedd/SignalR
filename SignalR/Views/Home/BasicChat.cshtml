@@ -1,35 +1,42 @@
-﻿<div class="container">
-     <div class="row">&nbsp;</div>
-        <div class="row">
-             <div class="col-3">Sender</div>
-             <div class="col-4"><input type="text" value="@User.Identity.Name" id="senderEmail" /></div>
-         </div>
-        <div class="row">
-            <div class="col-3">Receiver</div>
-            <div class="col-4"><input type="text" id="receiverEmail" /></div>
-        </div>
-        <div class="row">
-            <div class="col-3">Message</div>
-            <div class="col-4"><input type="text" id="chatMessage" /></div>
-        </div>
-        <div class="row">&nbsp;</div>
-        <div class="row">
-            <div class="col-6">
-                <input type="button" id="sendMessage" value="Send Message" />
+﻿<div class="container mt-5">
+    <div class="card shadow-lg p-5 hover-card">
+        <div class="card-body">
+            <h2 class="card-title text-center magical-title mb-4">Basic Chat</h2>
+            <form id="chatForm">
+                <div class="row mb-3 align-items-center">
+                    <label for="senderEmail" class="col-3 text-end form-label fw-bold">Sender</label>
+                    <div class="col-6">
+                        <input type="text" class="form-control" value="@User.Identity.Name" id="senderEmail" readonly />
+                    </div>
+                </div>
+                <div class="row mb-3 align-items-center">
+                    <label for="receiverEmail" class="col-3 text-end form-label fw-bold">Receiver</label>
+                    <div class="col-6">
+                        <input type="email" class="form-control" id="receiverEmail" placeholder="Enter receiver email" />
+                    </div>
+                </div>
+                <div class="row mb-3 align-items-center">
+                    <label for="chatMessage" class="col-3 text-end form-label fw-bold">Message</label>
+                    <div class="col-6">
+                        <textarea class="form-control" id="chatMessage" placeholder="Enter your message" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button id="sendMessage" class="btn btn-gradient">Send Message</button>
+                    </div>
+                </div>
+            </form>
+            <hr class="my-4" />
+            <div class="row">
+                <div class="col-12">
+                    <ul id="messagesList" class="list-group shadow-sm rounded"></ul>
+                </div>
             </div>
         </div>
-    <div class="row">
-        <div class="col-12">
-            <hr /> 
-        </div>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <ul id="messagesList"></ul>
-        </div>
-    </div>
-
 </div>
 
+
 <script src="~/js/signalr.js"></script>
-<script src="~/js/chat.js"></script>
+<script src="~/js/BasicChat.js"></script>

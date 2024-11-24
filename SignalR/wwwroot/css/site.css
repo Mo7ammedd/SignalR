@@ -67,3 +67,37 @@ body {
   height: 3px;
   background: linear-gradient(90deg, #007bff, #dc3545);
 }
+/* Fancy Button Gradient */
+.btn-gradient {
+  background: linear-gradient(90deg, #007bff, #258cfb);
+  color: white;
+  border: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #0056b3, #1e7fdf);
+}
+
+/* Accessible Focus Outline */
+input:focus, textarea:focus, .btn-gradient:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+/* Chat Messages Styling */
+.list-group {
+  max-height: 300px;
+  overflow-y: auto;
+  background: #f8f9fa;
+}
+
+.list-group-item {
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
