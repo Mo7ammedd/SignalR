@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
 using SignalR.Data;
 
 namespace SignalR.Hubs;
@@ -17,6 +18,7 @@ public class ChatHub : Hub
     {
         await Clients.All.SendAsync("MessageReceived", user, message);
     }
+    [Authorize]
     public async Task SendMessageToReceiver(string sender, string receiver, string message)
     {
         var userId = _db.Users.FirstOrDefault(u => u.Email.ToLower() == receiver.ToLower()).Id;

@@ -47,6 +47,7 @@ app.MapHub<DeathlyHallowsHub>("/hub/deathlyHallows");
 app.MapHub<HouseGroupsHub>("/hub/houseGroups");
 app.MapHub<NotificationHub>("/hub/notification");
 app.MapHub<ChatHub>("/hub/chat");
+app.MapHub<OrderHub>("/hub/order");
 app.MapRazorPages();
 
 app.Run();
