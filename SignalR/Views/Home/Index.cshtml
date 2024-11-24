@@ -1,159 +1,57 @@
-﻿@{
-    ViewData["Title"] = "Deathly Hallows Race";
-}
-
+﻿
 
 <div class="container py-5">
-             <div class="row border p-1 mt-3">
-                <h3>Subscribed List: </h3>
-                <hr />
-                <div class="row p-2">
-                <div class="col-3">
-                              <label style="color:#B52033" id="lbl_houseJoined"></label>
-                </div>
-            </div>
-            </div>
-            <div class="row border p-1 mt-3">
-                <h3>Subscribe: </h3>
-                <hr />
-                <div class="row p-2">
-                <div class="col-3">
-                    <button class="btn" style="background-color:#B52033" id="btn_gryffindor">Gryffindor</button>
-                </div>
-                    <div class="col-3">
-                        <button class="btn" style="background-color:#236E50" id="btn_slytherin">Slytherin</button>
-                </div>
-                    <div class="col-3">
-                        <button class="btn" style="background-color:#EDB526" id="btn_hufflepuff">Hufflepuff</button>
-                </div>
-                    <div class="col-3">
-                        <button class="btn" style="background-color:#10749F" id="btn_ravenclaw">Ravenclaw</button>
-                </div>
-            </div>
-        </div>
-        <div class="row border p-1 mt-3">
-                <h3>Unsubscribe: </h3>
-                <hr />
-                <div class="row p-2">
-                <div class="col-3">
-                    <button class="btn" style="background-color:#B52033 ; display : none ;" id="btn_un_gryffindor">Gryffindor</button>
-                </div>
-                    <div class="col-3">
-                        <button class="btn" style="background-color:#236E50 ; display : none ;" id="btn_un_slytherin">Slytherin</button>
-                </div>
-                    <div class="col-3">
-                        <button class="btn" style="background-color:#EDB526 ; display : none ;" id="btn_un_hufflepuff">Hufflepuff</button>
-                </div>
-                    <div class="col-3">
-                        <button class="btn" style="background-color:#10749F;display : none ;" id="btn_un_ravenclaw">Ravenclaw</button>
-                </div>
-            </div>
-        </div>
-            <div class="row border p-1 mt-3">
-                <h3>Trigger Notification: </h3>
-                <hr />
-                <div class="row p-2">
-                <div class="col-3">
-                    <button class="btn" style="background-color:#B52033" id="trigger_gryffindor">Gryffindor</button>
-                </div>
-                    <div class="col-3">
-                        <button class="btn" style="background-color:#236E50" id="trigger_slytherin">Slytherin</button>
-                </div>
-                    <div class="col-3">
-                        <button class="btn" style="background-color:#EDB526" id="trigger_hufflepuff">Hufflepuff</button>
-                </div>
-                    <div class="col-3">
-                        <button class="btn" style="background-color:#10749F" id="trigger_ravenclaw">Ravenclaw</button>
-                </div>
-            </div>
-            </div>
-    <div class="text-center mb-5">
-        <h1 class="display-4 mb-4 magical-title">
-            ⚡ Deathly Hallows Race ⚡
-        </h1>
-        <p class="text-muted">Choose your most powerful Deathly Hallow</p>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-3">Sender</div>
+        <div class="col-4"><input type="text" value="@User.Identity.Name" id="senderEmail" /></div>
     </div>
-
-    <div class="row g-4 mb-5">
-        <!-- Invisibility Cloak Card -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm hover-card">
-                <div class="card-body text-center">
-                    <div class="mb-4">
-                        <i class="fas fa-hat-wizard fa-3x text-primary"></i>
-                    </div>
-                    <h3 class="card-title h4 mb-3">Invisibility Cloak</h3>
-                    <div class="d-flex justify-content-center align-items-center gap-2 mb-4">
-                        <span class="badge bg-primary fs-5 p-2" id="cloakCounter">0</span>
-                        <span class="text-muted">votes</span>
-                    </div>
-                    <button class="btn btn-outline-primary btn-lg w-100 vote-btn" data-type="cloak">
-                        <i class="fas fa-vote-yea me-2"></i>Vote for Cloak
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Resurrection Stone Card -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm hover-card">
-                <div class="card-body text-center">
-                    <div class="mb-4">
-                        <i class="fas fa-gem fa-3x text-success"></i>
-                    </div>
-                    <h3 class="card-title h4 mb-3">Resurrection Stone</h3>
-                    <div class="d-flex justify-content-center align-items-center gap-2 mb-4">
-                        <span class="badge bg-success fs-5 p-2" id="stoneCounter">0</span>
-                        <span class="text-muted">votes</span>
-                    </div>
-                    <button class="btn btn-outline-success btn-lg w-100 vote-btn" data-type="stone">
-                        <i class="fas fa-vote-yea me-2"></i>Vote for Stone
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Elder Wand Card -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm hover-card">
-                <div class="card-body text-center">
-                    <div class="mb-4">
-                        <i class="fas fa-wand-sparkles fa-3x text-danger"></i>
-                    </div>
-                    <h3 class="card-title h4 mb-3">Elder Wand</h3>
-                    <div class="d-flex justify-content-center align-items-center gap-2 mb-4">
-                        <span class="badge bg-danger fs-5 p-2" id="wandCounter">0</span>
-                        <span class="text-muted">votes</span>
-                    </div>
-                    <button class="btn btn-outline-danger btn-lg w-100 vote-btn" data-type="wand">
-                        <i class="fas fa-vote-yea me-2"></i>Vote for Wand
-                    </button>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-3">Receiver</div>
+        <div class="col-4"><input type="text" id="receiverEmail" /></div>
+    </div>
+    <div class="row">
+        <div class="col-3">Message</div>
+        <div class="col-4"><input type="text" id="chatMessage" /></div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="sendMessage" value="Send Message" />
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
 
     <!-- Stats Section -->
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-6 border-end">
-                            <div class="text-center">
-                                <h4 class="text-muted mb-2">
-                                    <i class="fas fa-eye me-2"></i>Total Views
-                                </h4>
-                                <span class="h3" id="TotalViewsCounter">0</span>
-                            </div>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-6 border-end">
+                        <div class="text-center">
+                            <h4 class="text-muted mb-2">
+                                <i class="fas fa-eye me-2"></i>Total Views
+                            </h4>
+                            <span class="h3" id="TotalViewsCounter">0</span>
                         </div>
-                        <div class="col-6">
-                            <div class="text-center">
-                                <h4 class="text-muted mb-2">
-                                    <i class="fas fa-users me-2"></i>Active Users
-                                </h4>
-                                <span class="h3" id="TotalUsersCounter">0</span>
-                            </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center">
+                            <h4 class="text-muted mb-2">
+                                <i class="fas fa-users me-2"></i>Active Users
+                            </h4>
+                            <span class="h3" id="TotalUsersCounter">0</span>
                         </div>
                     </div>
                 </div>
@@ -161,6 +59,7 @@
         </div>
     </div>
 </div>
+
 
 @section Scripts {
     <script src="~/js/signalr.js"></script>

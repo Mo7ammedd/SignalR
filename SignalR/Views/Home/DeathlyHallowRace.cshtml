@@ -1,0 +1,69 @@
+﻿<div class="container">
+    <div class="text-center mb-5">
+        <h1 class="display-4 mb-4 magical-title">
+            ⚡ Deathly Hallows Race ⚡
+        </h1>
+        <p class="text-muted">Choose your most powerful Deathly Hallow</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <!-- Invisibility Cloak Card -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm hover-card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-hat-wizard fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="card-title h4 mb-3">Invisibility Cloak</h3>
+                    <div class="d-flex justify-content-center align-items-center gap-2 mb-4">
+                        <span class="badge bg-primary fs-5 p-2" id="cloakCounter">0</span>
+                        <span class="text-muted">votes</span>
+                    </div>
+                    <button class="btn btn-outline-primary btn-lg w-100 vote-btn" data-type="cloak">
+                        <i class="fas fa-vote-yea me-2"></i>Vote for Cloak
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resurrection Stone Card -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm hover-card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-gem fa-3x text-success"></i>
+                    </div>
+                    <h3 class="card-title h4 mb-3">Resurrection Stone</h3>
+                    <div class="d-flex justify-content-center align-items-center gap-2 mb-4">
+                        <span class="badge bg-success fs-5 p-2" id="stoneCounter">0</span>
+                        <span class="text-muted">votes</span>
+                    </div>
+                    <button class="btn btn-outline-success btn-lg w-100 vote-btn" data-type="stone">
+                        <i class="fas fa-vote-yea me-2"></i>Vote for Stone
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Elder Wand Card -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm hover-card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-wand-sparkles fa-3x text-danger"></i>
+                    </div>
+                    <h3 class="card-title h4 mb-3">Elder Wand</h3>
+                    <div class="d-flex justify-content-center align-items-center gap-2 mb-4">
+                        <span class="badge bg-danger fs-5 p-2" id="wandCounter">0</span>
+                        <span class="text-muted">votes</span>
+                    </div>
+                    <button class="btn btn-outline-danger btn-lg w-100 vote-btn" data-type="wand">
+                        <i class="fas fa-vote-yea me-2"></i>Vote for Wand
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/signalr.js"></script>
+<script src="~/js/DeathlyHallows.js"></script>

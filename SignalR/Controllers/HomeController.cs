@@ -55,7 +55,15 @@ public class HomeController : Controller
             return Ok(SD.DealthyHallowRace);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Notification()
+        {
+            return View();
+        }
+        public IActionResult DeathlyHallowRace()
+        {
+            return View();
+        }
+        public IActionResult HarryPotterHouse()
         {
             return View();
         }
